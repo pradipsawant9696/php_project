@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Service Management</title>
+
+    <script>
+        function formatCarNumber(input) {
+            // Remove spaces and ensure the text is uppercase
+            let value = input.value.toUpperCase().replace(/\s+/g, '');
+            // Match and format as "XX99XX9999"
+            let formatted = value.replace(/^([A-Z]{2})(\d{2})([A-Z]{2})(\d{4})$/, '$1$2$3$4');
+            // Update the input value
+            input.value = formatted;
+        }
+    </script>
+
+    <link rel="stylesheet" href="search.css">
+</head> 
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <nav class="navbar">
+          <div class="logo">Sawant Car Service</div>
+          <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="reports.php">Reports</a></li>
+          </ul>
+        </nav>
+        <div class="hero">
+          <!-- <h1>About Us</h1> -->
+        </div>
+      </header>
+
+
+    <!-- Main Section -->
+    <main class="main-section">
+        <h1> Enter Car Number to Search The Record . </h1>
+
+        <form  class="form-container" action="search.php" method="post">
+            <input class="search-input" type="text" name="search" required oninput="formatCarNumber(this)" maxlength="10" placeholder="Enter the number">
+            <button class="bt" type="submit">Search</button>
+        </form>
+    
+
+      
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section company">
+                
+                <p>&copy; 2025 Sawant Car Service. All rights reserved.</p>
+            </div>
+           
+        </div>
+    </footer>
+
+</body>
+</html>

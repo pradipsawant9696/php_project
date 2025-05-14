@@ -1,0 +1,54 @@
+<!-- search.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Client</title>
+  <link rel="stylesheet" href="ex.css">
+  <script>
+    function formatCarNumber(input) {
+      // Remove spaces and ensure the text is uppercase
+      let value = input.value.toUpperCase().replace(/\s+/g, '');
+      // Format as per your pattern (modify if needed)
+      let formatted = value.replace(/^([A-Z]{2})(\d{2})([A-Z]{2})(\d{4})$/, '$1$2$3$4');
+      input.value = formatted;
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Sawant Car Service</div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html" >About</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="reports.php">Reports</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <!-- <h1>About Us</h1> -->
+    </div>
+  </header>
+  
+  <main class="main-section">
+    <h1>Search Existing Client</h1>
+    <form action="ex.php" method="GET" class="form-container">
+      <fieldset>
+        <legend>Search Client by Vehicle Number</legend>
+        <div class="form-row">
+          <label for="bike_car_number">Vehicle Number:</label>
+          <input type="text" id="bike_car_number" name="bike_car_number" 
+                 oninput="formatCarNumber(this)" maxlength="10" placeholder="e.g., MH42AQ1668" required>
+        </div>
+      </fieldset>
+      <button type="submit">Search</button>
+    </form>
+  </main>
+  
+  <footer class="footer">
+    <p>&copy; 2025 Car Service Management. All rights reserved.</p>
+  </footer>
+</body>
+</html>

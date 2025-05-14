@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Form</title>
+    <script>
+        function formatCarNumber(input) {
+            // Remove spaces and ensure the text is uppercase
+            let value = input.value.toUpperCase().replace(/\s+/g, '');
+            // Match and format as "XX99XX9999"
+            let formatted = value.replace(/^([A-Z]{2})(\d{2})([A-Z]{2})(\d{4})$/, '$1$2$3$4');
+            // Update the input value
+            input.value = formatted;
+        }
+    </script>
+    <link rel="stylesheet" href="owner.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <nav class="navbar">
+          <div class="logo">Sawant Car Service</div>
+          <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="Reports.php">Reports</a></li>
+          </ul>
+        </nav>
+        <div class="hero">
+          <!-- <h1>About Us</h1> -->
+        </div>
+      </header>
+
+    <main class="main-section">
+        <h1>Data Entry Form</h1>
+        <form action="owner.php" method="POST" class="form-container">
+            
+            <fieldset>
+                <legend>Owner Details</legend>
+                <div class="form-row">
+                    <label for="owner_name">Owner Name:</label>
+                    <input type="text" id="owner_name" name="owner_name" required>
+                </div>
+                <div class="form-row">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="form-row">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-row">
+                    <label for="contact_no">Contact Number:</label>
+                    <input type="text" id="contact_no" name="contact_no" pattern="\d{10}" placeholder="10-digit number" required>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Bike/Car Details</legend>
+                <div class="form-row">
+                    <label for="bike_car_number">Vehicle Number:</label>
+                    <input type="text" id="bike_car_number" name="bike_car_number" required oninput="formatCarNumber(this)" maxlength="10" placeholder="e.g., MH42-AQ1668">
+                </div>
+                <div class="form-row">
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-row">
+                    <label for="model">Model:</label>
+                    <input type="text" id="model" name="model">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Service Provider Details</legend>
+                
+                <div class="form-row">
+                    <label for="s_name">Service Provider Name:</label>
+                    <input type="text" id="s_name" name="s_name" required>
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <legend>Service Details</legend>
+                <div class="form-row">
+                    <label for="service_name">Service Type:</label>
+                    <select id="service_name" name="service_name">
+                        <option value="Oil Change">Oil Change</option>
+                        <option value="Brake Service">Brake Service</option>
+                        <option value="Tire Rotation & Alignment">Tire Rotation & Alignment</option>
+                        <option value="Engine Diagnostics">Engine Diagnostics</option>
+                        <option value="Battery Inspection & Replacement">Battery Inspection & Replacement</option>
+                        <option value="Suspension & Steering Service">Suspension & Steering Service</option>
+                        <option value="Air Conditioning Service">Air Conditioning Service</option>
+                        <option value="Fuel System Service">Fuel System Service</option>
+                        <option value="Coolant System Flush">Coolant System Flush</option>
+                        <option value="Wiper Blade Replacement">Wiper Blade Replacement</option>
+                        <option value="Light and Indicator Checks">Light and Indicator Checks</option>
+                        <option value="Detailing & Cleaning">Detailing & Cleaning</option>
+                        <option value="Chain Maintenance">Chain Maintenance</option>
+                        <option value="Clutch & Gear Adjustment">Clutch & Gear Adjustment</option>
+                        <option value="Air Filter Replacement">Air Filter Replacement</option>
+                        <option value="Spark Plug Inspection">Spark Plug Inspection</option>
+                        <option value="Coolant Service">Coolant Service</option>
+                        <option value="Tire Service">Tire Service</option>
+
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-row">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" step="0.01" required>
+                </div>
+                <div class="form-row">
+                    <label for="pay_mode">Payment Mode:</label>
+                    <select id="pay_mode" name="pay_mode">
+                        <option value="cash">Cash</option>
+                        <option value="card">Card</option>
+                        <option value="online">Online</option>
+                    </select>
+                </div>
+            </fieldset>
+            <script src="owner.js"></script>
+            <button type="submit">Submit</button>
+        </form>
+        
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Sawant Car Service. All rights reserved.</p>
+    </footer>
+</body>
+</html>

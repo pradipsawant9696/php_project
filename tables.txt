@@ -1,0 +1,92 @@
+-- Create the Owner table
+
+
+CREATE TABLE owner (
+    owner_ID INT AUTO_INCREMENT PRIMARY KEY,  -- Unique owner ID with auto-increment
+    owner_name VARCHAR(100) NOT NULL,         -- Owner's name (cannot be null)
+    address VARCHAR(255),                     -- Owner's address
+    city VARCHAR(100),                        -- Owner's city
+    contact_no VARCHAR(15)                    -- Owner's contact number
+);
+
+
+-- Create the Bike/Car table
+CREATE TABLE bike_car (
+    bike_car_number VARCHAR(20) PRIMARY KEY, -- Unique vehicle number
+    company VARCHAR(100) NOT NULL,          -- Vehicle's company
+    model VARCHAR(100),                     -- Vehicle's model
+    owner_ID INT,                           -- Links to the Owner table
+    FOREIGN KEY (owner_ID) REFERENCES Owner(owner_ID) -- Establish relationship
+);
+
+-- Create the Service Provider table
+CREATE TABLE service_provider (
+    s_name VARCHAR(100) NOT NULL,           -- Service provider's name
+    bike_car_number VARCHAR(20) primary key,            -- Links to the Bike/Car table
+    FOREIGN KEY (bike_car_number) REFERENCES Bike_Car(bike_car_number) -- Establish relationship
+);
+
+-- Create the Service table
+CREATE TABLE service (
+    service_id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique service ID with auto-increment
+    service_type VARCHAR(100) NOT NULL,         -- Name of the service (e.g., oil change, brake check)
+    date DATE,                                  -- Service date
+    amount DECIMAL(10, 2),                      -- Service amount (e.g., 100.50)
+    pay_mode VARCHAR(50),                       -- Payment mode (e.g., cash, card, online)
+    bike_car_number VARCHAR(20),                                   -- Foreign key that links to Service_Provider table
+    FOREIGN KEY (bike_car_number) REFERENCES bike_car(bike_car_number) -- Establish relationship with Service_Provider
+);
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+
+//query to delete the record 
+
+-- Step 1: Delete from the `service` table where bike_car_number matches
+DELETE FROM service WHERE bike_car_number = 'MH425434';
+
+-- Step 2: Delete from the `service_provider` table where bike_car_number matches
+DELETE FROM service_provider WHERE bike_car_number = 'MH425434';
+
+
+--  step 3 : Delete from both `bike_car` and `owner` tables using a subquery for the `owner_ID`
+DELETE bc, o
+FROM bike_car bc
+JOIN owner o ON bc.owner_ID = o.owner_ID
+WHERE bc.bike_car_number = 'MH425434';
+
+    
+// for searching specific onwer info 
+
+SELECT 
+    o.owner_ID,
+    o.owner_name,
+    o.address,
+    o.city,
+    o.contact_no,
+    bc.bike_car_number,
+    bc.company AS vehicle_company,
+    bc.model AS vehicle_model,
+    sp.s_name AS service_provider_name,
+    s.service_id,
+    s.service_type,
+    s.date AS service_date,
+    s.amount AS service_amount,
+    s.pay_mode AS payment_mode
+FROM 
+    owner o
+JOIN 
+    bike_car bc ON o.owner_ID = bc.owner_ID
+LEFT JOIN 
+    service_provider sp ON bc.bike_car_number = sp.bike_car_number
+LEFT JOIN 
+    service s ON bc.bike_car_number = s.bike_car_number
+WHERE 
+    bc.bike_car_number = 'MB425433';

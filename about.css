@@ -1,0 +1,133 @@
+/* about.css */
+
+/* Import premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply the background image to the entire page */
+body {
+  font-family: 'Montserrat', sans-serif;
+   /* background: url('pexels-vo-huy-1470298-13609732.jpg') no-repeat center center fixed;  */
+  background-size: cover;
+  color: #f8f8f8;
+  line-height: 1.6;
+}
+  
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  /* background: transparent  ;  */
+  background: rgba(0, 0, 0, 0.5);/* Transparent so the image shows */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #dcd1d1; /* A rich gold tone for a royal touch */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f8f8f8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #9a5a1d;
+}
+
+/* Hero Section */
+.header .hero {
+  height: 100vh;  /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header .hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* A dark overlay to ensure the hero text pops */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.header .hero h1 {
+  position: relative;
+  font-family: 'Lora', serif;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+/* About Section */
+.about-section {
+  padding: 40px 20px;
+  margin-left: 35rem;
+
+}
+
+.about-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  /* A semi-transparent dark background overlay for readability */
+  /* background: rgba(0, 0, 0, 0.1); */
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.about-section h2 {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #f8f8f8;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Footer */
+.footer {
+  background: transparent; /* Transparent so the background image shows */
+  text-align: center;
+  padding: 10px;
+  color: #f8f8f8;
+
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 2.4rem;
+}

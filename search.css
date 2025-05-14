@@ -1,0 +1,138 @@
+/* General Reset */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f9f9f9; /* Black Theme */
+    color: #fff;           /* White Text */
+    line-height: 1.6;
+}
+
+/* Navbar */
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 30px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #007bff;
+  }
+  
+
+/* Main Section */
+.main-section {
+    padding: 80px 20px; /* Adjust for navbar height */
+    text-align: center;
+    margin-top: 6.5rem;
+}
+
+.main-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+.search-input{
+    height: 2.5rem;
+    width: 20rem;
+    margin-top: 1rem;
+    border-color: #000  ;
+    font-size: 1.1rem;
+    text-align: center;
+    
+}
+.bt{
+    height: 2.5rem;
+    width: 7rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    background-color: #000;
+    color: #fff;
+    border-color: #000  ;
+}
+
+
+
+/* Footer */
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding:11px 10px;
+    background: #333;
+    color: #ffffff;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    /* border: 1px solid #fff  ; */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    /* margin-left: 2rem; */
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    margin: 0;
+}
